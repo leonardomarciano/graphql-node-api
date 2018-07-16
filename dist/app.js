@@ -9,7 +9,7 @@ class App {
     middleware() {
         this.express.use('/leroy', (req, res, next) => {
             res.send({
-                hello: "Mundo"
+                Sudo: "Bank"
             });
         });
     }

@@ -11,7 +11,7 @@ class App {
     private middleware(): void {
         this.express.use('/leroy', (req: express.Request, res:express.Response, next:express.NextFunction ) => {
             res.send({
-                hello: "Mundo"
+                Sudo: "Bank"
             })
         })
     }

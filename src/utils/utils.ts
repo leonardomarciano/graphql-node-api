@@ -1,15 +1,17 @@
 import { Server } from "http";
 
+
+// TODO: Create a port normalizer
 export const normalizePort = (val: number | string): number | string | boolean => {
     let port: number = (typeof val === 'string') ? parseInt(val) : val;
     if (isNaN(port)) return val;
     else if (port >= 0) return port;
     else return false;
 }
-
+// TODO: Create a error handler
 export const onError = (server: Server) => {
     return (error: NodeJS.ErrnoException): void => {
-        let port: number | string = server.address().port;
+        let port: number = 3000
         if (error.syscall !== 'listen') throw error;
         let bind = (typeof port === 'string') ? `pipe ${port}` : `port ${port}`;
         switch(error.code) {
@@ -27,6 +29,8 @@ export const onError = (server: Server) => {
     }
 }
 
+
+// TODO: create a On Listening message
 export const onListening = (server: Server) => {
     return (): void => {
         let addr = server.address();
